@@ -13,6 +13,10 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 3. Configure the plugin in Dashboard -> WP H-HappyForms Tools
 
 == Changelog ==
+Version 1.5
+1. Neuprogrammierung
+2. Zustimmungstext in E-Mails kann ausgeblendet werden
+
 Version 1.4
 1. Code überarbeitet
 
