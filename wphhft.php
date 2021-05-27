@@ -30,7 +30,8 @@ if (is_plugin_active('happyforms/happyforms.php')) {
     { // Funktions-Name anpassen
         $subject = 'Plugin "WP H-HappyForms Tools"'; // Plugin-Name anpassen
         $message = 'Falls nicht vorhanden:
-Bitte das Plugin "Git Updater" hier https://herbrand.org/tutorials/github/git-updater/ herunterladen, installieren und aktivieren, um weiterhin Updates zu erhalten!';
+Bitte das Plugin "Git Updater" hier https://herbrand.org/tutorials/github/git-updater/ herunterladen, installieren und aktivieren, 
+um weiterhin Updates zu erhalten!';
         wp_mail(get_option("admin_email"), $subject, $message);
     }
 
