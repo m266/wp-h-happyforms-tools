@@ -1,6 +1,6 @@
 ﻿=== WP H-HappyForms Tools ===
 Requires at least: 5.0
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,10 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 3. Configure the plugin in Dashboard -> WP H-HappyForms Tools
 
 == Changelog ==
+Version 1.6
+1. Check, ob Plugin HappyForms aktiv
+2. Erinnerung an Git Updater kommt nun bei jeder Plugin-Aktivierung
+
 Version 1.5
 1. Neuprogrammierung
 2. Zustimmungstext in E-Mails kann ausgeblendet werden

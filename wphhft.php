@@ -4,9 +4,9 @@ Plugin Name:       WP H-HappyForms Tools
 Plugin URI:        https://github.com/m266/wp-h-happyforms-tools
 Description:       Tools für das Plugin "HappyForms"
 Author:            Hans M. Herbrand
-Author URI:        https://web266.de
-Version:           1.5
-Date:              2021-04-23
+Author URI:        https://herbrand.org
+Version:           1.6
+Date:              2021-05-27
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/m266/wp-h-happyforms-tools
@@ -21,18 +21,18 @@ if (!function_exists('is_plugin_inactive')) {
     require_once ABSPATH . '/wp-admin/includes/plugin.php';
 }
 
-// Check GitHub Updater aktiv
-// Anpassungen Plugin-Name und Funktions-Name vornehmen
-if (is_plugin_inactive('github-updater/github-updater.php')) {
+// Plugin HappyForms aktiv?
+if (is_plugin_active('happyforms/happyforms.php')) {
+// Erinnerung an Git Updater
 // E-Mail an Admin senden, wenn inaktiv
     register_activation_hook(__FILE__, 'wphhft_activate'); // Funktions-Name anpassen
     function wphhft_activate()
     { // Funktions-Name anpassen
         $subject = 'Plugin "WP H-HappyForms Tools"'; // Plugin-Name anpassen
-        $message = 'Bitte das Plugin "<a href="https://web266.de/tutorials/github/github-updater/">GitHub Updater</a>" herunterladen, installieren und aktivieren, <br />um weiterhin Updates zu erhalten!';
+        $message = 'Falls nicht vorhanden:
+		Bitte das Plugin "Git Updater" hier https://herbrand.org/tutorials/github/git-updater/ herunterladen, installieren und aktivieren, <br />um weiterhin Updates zu erhalten!';
         wp_mail(get_option("admin_email"), $subject, $message);
     }
-}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Erlaubt HTML-Code für HappyForms in Mehrfachauswahl-Feldern
@@ -52,7 +52,7 @@ if(strpos($wphhft_file_contents, $wphhft_string_orig) !== false) { //  Original-
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Verbesserung Bestätigungs-E-Mail (Block der Zustimmung wird ausgeblendet)
-// Der Inhalt der Variable "$label" muss exakt dem Text im Formular entsprechen; bei Bedarf in Zeile 57 anpassen.
+// Der Inhalt der Variable "$label" muss exakt dem Text im Formular entsprechen; bei Bedarf in Zeile 56 anpassen.
 add_filter( 'happyforms_email_part_visible', function( $visible, $part, $form ) {
     $label = 'Das Formular kann nur mit der Zustimmung zur Datenschutzerklärung gesendet werden*';
     if ( isset( $part['label'] ) && $label === $part['label'] ) {
@@ -61,4 +61,5 @@ add_filter( 'happyforms_email_part_visible', function( $visible, $part, $form ) 
 
     return $visible;
 }, 10, 3 );
+}
 ?>
