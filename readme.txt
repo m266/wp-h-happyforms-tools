@@ -13,6 +13,13 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 3. Configure the plugin in Dashboard -> WP H-HappyForms Tools
 
 == Changelog ==
+Version 1.8
+1. Feld "Nachricht" wird mit Kommentar-Blacklist abgeglichen
+
+Version 1.7
+1. Plugin-Namen angepasst
+2. Feld "Nachricht" wird mit Kommentar-Blacklist abgeglichen
+
 Version 1.6
 1. Check, ob Plugin HappyForms aktiv
 2. Erinnerung an Git Updater kommt nun bei jeder Plugin-Aktivierung
