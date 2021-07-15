@@ -5,7 +5,7 @@ Plugin URI:        https://github.com/m266/wp-h-happyforms-tools
 Description:       Tools für das Plugin "Happyforms"
 Author:            Hans M. Herbrand
 Author URI:        https://herbrand.org
-Version:           1.8
+Version:           1.8  
 Date:              2021-07-14
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
