@@ -1,6 +1,6 @@
 ﻿=== WP H-HappyForms Tools ===
 Requires at least: 5.0
-Tested up to: 5.7.2
+Tested up to: 5.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,9 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 3. Configure the plugin in Dashboard -> WP H-HappyForms Tools
 
 == Changelog ==
+Version 1.9
+1. Formularexport aus Happyforms wieder aktiviert
+
 Version 1.8
 1. Feld "Nachricht" wird mit Kommentar-Blacklist abgeglichen
 
