@@ -1,6 +1,6 @@
 ﻿=== WP H-HappyForms Tools ===
 Requires at least: 5.0
-Tested up to: 5.8.1
+Tested up to: 6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,10 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 3. Configure the plugin in Dashboard -> WP H-HappyForms Tools
 
 == Changelog ==
+Version 2.0
+1. Unterstützung für Free- und Kaufversion von Happyforms
+2. Link wird nun als Shortcode im Formular eingefügt
+
 Version 1.9
 1. Formularexport aus Happyforms wieder aktiviert
 

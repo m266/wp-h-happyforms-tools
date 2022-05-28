@@ -5,8 +5,8 @@ Plugin URI:        https://github.com/m266/wp-h-happyforms-tools
 Description:       Tools für das Plugin "Happyforms"
 Author:            Hans M. Herbrand
 Author URI:        https://herbrand.org
-Version:           1.9
-Date:              2021-11-05
+Version:           2.0
+Date:              2022-05-27
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/m266/wp-h-happyforms-tools
@@ -21,8 +21,8 @@ if (!function_exists('is_plugin_inactive')) {
     require_once ABSPATH . '/wp-admin/includes/plugin.php';
 }
 
-// Plugin Happyforms aktiv?
-if (is_plugin_active('happyforms/happyforms.php')) {
+// Plugin Happyforms oder Happyforms-Upgrade aktiv?
+if (is_plugin_active('happyforms/happyforms.php') || (is_plugin_active('happyforms-upgrade/happyforms-upgrade.php'))) {
 // Erinnerung an Git Updater
 // E-Mail an Admin senden, wenn inaktiv
     register_activation_hook(__FILE__, 'wphhft_activate'); // Funktions-Name anpassen
@@ -36,20 +36,32 @@ um weiterhin Updates zu erhalten!';
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// Erlaubt HTML-Code für Happyforms in Mehrfachauswahl-Feldern
-// Ersetzt String in der Datei frontend-checkbox.php Zeile 34 (Plugin Happyforms)
-    $wphhft_string_orig = "<?php echo esc_attr( \$option['label'] ); ?>";
-    $wphhft_string_new = "<?php echo html_entity_decode( \$option['label'] ); ?>";
-    $wphhft_path_to_file = ABSPATH . 'wp-content/plugins/happyforms/core/templates/parts/frontend-checkbox.php';
-    $wphhft_file_contents = file_get_contents($wphhft_path_to_file); // Inhalt frontend-checkbox.php einlesen
-if(strpos($wphhft_file_contents, $wphhft_string_orig) !== false) { //  Original-String vorhanden?
-    $wphhft_file_contents = str_replace($wphhft_string_orig, $wphhft_string_new, $wphhft_file_contents);
-    file_put_contents($wphhft_path_to_file, $wphhft_file_contents); // String ersetzen
-    add_filter('happyforms_part_frontend_template_path_checkbox', function ($wphhft_template) {
-        $wphhft_template = ABSPATH . 'wp-content/plugins/happyforms/core/templates/parts/frontend-checkbox.php';
-        return $wphhft_template;
-    });
-}
+/* Erlaubt Links in Mehrfachauswahl-Feldern von Happyforms
+Credits/Special thanks: Ignazio Setti https://thethemefoundry.com/
+*/
+add_shortcode( 'happyforms_link', function( $atts, $content = '' ) {
+    $atts = shortcode_atts( array( 'href' => '#' ), $atts );
+    $atts['href'] = str_replace( '&quot;', '', $atts['href'] );
+    $link = "<a href=\"{$atts['href']}\" target=\"_blank\">{$content}</a>";
+
+    return $link;
+}, 10, 2 );
+
+add_action( 'happyforms_part_before', function( $part ) {
+    if ( 'checkbox' !== $part['type'] ) {
+        return;
+    }
+
+    ob_start();
+} );
+
+add_action( 'happyforms_part_after', function( $part ) {
+    if ( 'checkbox' !== $part['type'] ) {
+        return;
+    }
+
+    echo do_shortcode( ob_get_clean() );
+} );
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Verbesserung Bestätigungs-E-Mail (Block der Zustimmung wird ausgeblendet)
@@ -62,7 +74,6 @@ add_filter( 'happyforms_email_part_visible', function( $visible, $part, $form ) 
 
     return $visible;
 }, 10, 3 );
-}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /*
@@ -111,4 +122,5 @@ add_filter( 'happyforms_happyform_post_type_args', function( $args ) {
 
     return $args;
 } );
+}
 ?>
