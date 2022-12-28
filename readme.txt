@@ -1,6 +1,6 @@
 ﻿=== WP H-HappyForms Tools ===
 Requires at least: 5.0
-Tested up to: 6.0
+Tested up to: 6.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -10,9 +10,12 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 == Installation ==
 1. Upload 'wp-h-happyforms-tools'  to the '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Configure the plugin in Dashboard -> WP H-HappyForms Tools
 
 == Changelog ==
+Version 2.1
+1. Getestet mit PHP 8.1 und WordPress 6.1.1
+2. Kleine Textkorrekturen
+
 Version 2.0
 1. Unterstützung für Free- und Kaufversion von Happyforms
 2. Link wird nun als Shortcode im Formular eingefügt

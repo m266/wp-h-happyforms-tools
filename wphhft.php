@@ -5,8 +5,8 @@ Plugin URI:        https://github.com/m266/wp-h-happyforms-tools
 Description:       Tools für das Plugin "Happyforms"
 Author:            Hans M. Herbrand
 Author URI:        https://herbrand.org
-Version:           2.0
-Date:              2022-05-27
+Version:           2.1
+Date:              2022-12-27
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/m266/wp-h-happyforms-tools
@@ -21,7 +21,7 @@ if (!function_exists('is_plugin_inactive')) {
     require_once ABSPATH . '/wp-admin/includes/plugin.php';
 }
 
-// Plugin Happyforms oder Happyforms-Upgrade aktiv?
+// Plugin Happyforms oder Happyforms-Upgrade (Premium-Version) aktiv?
 if (is_plugin_active('happyforms/happyforms.php') || (is_plugin_active('happyforms-upgrade/happyforms-upgrade.php'))) {
 // Erinnerung an Git Updater
 // E-Mail an Admin senden, wenn inaktiv
@@ -65,7 +65,7 @@ add_action( 'happyforms_part_after', function( $part ) {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Verbesserung Bestätigungs-E-Mail (Block der Zustimmung wird ausgeblendet)
-// Der Inhalt der Variable "$label" muss exakt dem Text im Formular entsprechen; bei Bedarf in Zeile 58 anpassen.
+// Der Inhalt der Variable "$label" muss exakt dem Text im Formular entsprechen; bei Bedarf in Zeile 70 anpassen.
 add_filter( 'happyforms_email_part_visible', function( $visible, $part, $form ) {
     $label = 'Das Formular kann nur mit der Zustimmung zur Datenschutzerklärung gesendet werden*';
     if ( isset( $part['label'] ) && $label === $part['label'] ) {
