@@ -5,8 +5,8 @@ Plugin URI:        https://github.com/m266/wp-h-happyforms-tools
 Description:       Tools für das Plugin "Happyforms"
 Author:            Hans M. Herbrand
 Author URI:        https://herbrand.org
-Version:           2.1
-Date:              2022-12-27
+Version:           2.2
+Date:              2023-02-11
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/m266/wp-h-happyforms-tools
@@ -111,16 +111,5 @@ add_filter( 'happyforms_validate_submission', function( $is_valid, $request, $fo
 
     return $is_valid;
 }, 10, 3 );
-
-//////////////////////////////////////////////////////////////////////////////////////////
-/*
-Happyforms-Formulare exportieren
-Credits/Special thanks: Ignazio Setti https://thethemefoundry.com/
-*/
-add_filter( 'happyforms_happyform_post_type_args', function( $args ) {
-    $args['can_export'] = true;
-
-    return $args;
-} );
 }
 ?>

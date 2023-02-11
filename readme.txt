@@ -12,6 +12,9 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+Version 2.2
+1. Block "Happyforms-Formulare exportieren" entfernt (Funktion in "Happyforms" enthalten)
+
 Version 2.1
 1. Getestet mit PHP 8.1 und WordPress 6.1.1
 2. Kleine Textkorrekturen
