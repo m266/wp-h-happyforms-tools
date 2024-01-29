@@ -5,8 +5,8 @@ Plugin URI:        https://github.com/m266/wp-h-happyforms-tools
 Description:       Tools für das Plugin "Happyforms"
 Author:            Hans M. Herbrand
 Author URI:        https://herbrand.org
-Version:           2.2
-Date:              2023-02-11
+Version:           2.3
+Date:              2024-01-29
 License:           GNU General Public License v2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/m266/wp-h-happyforms-tools
@@ -23,18 +23,15 @@ if (!function_exists('is_plugin_inactive')) {
 
 // Plugin Happyforms oder Happyforms-Upgrade (Premium-Version) aktiv?
 if (is_plugin_active('happyforms/happyforms.php') || (is_plugin_active('happyforms-upgrade/happyforms-upgrade.php'))) {
-// Erinnerung an Git Updater
-// E-Mail an Admin senden, wenn inaktiv
+// E-Mail an Admin senden, wenn aktiv
     register_activation_hook(__FILE__, 'wphhft_activate'); // Funktions-Name anpassen
     function wphhft_activate()
     { // Funktions-Name anpassen
-        $subject = 'Plugin "WP H-Happyforms Tools"'; // Plugin-Name anpassen
-        $message = 'Falls nicht vorhanden:
-Bitte das Plugin "Git Updater" hier https://herbrand.org/tutorials/github/git-updater/ herunterladen, installieren und aktivieren,
-um weiterhin Updates zu erhalten!';
+        $subject = 'Plugin "WP H-Happyforms Tools: Entwicklung eingestellt!"'; // Plugin-Name anpassen
+        $message = 'Bitte nach dieser Anleitung vorgehen:
+https://herbrand.org/wordpress/eigene-plugins/wp-h-happyforms-tools/';
         wp_mail(get_option("admin_email"), $subject, $message);
     }
-
 //////////////////////////////////////////////////////////////////////////////////////////
 /* Erlaubt Links in Mehrfachauswahl-Feldern von Happyforms
 Credits/Special thanks: Ignazio Setti https://thethemefoundry.com/
