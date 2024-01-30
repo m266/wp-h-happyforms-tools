@@ -12,6 +12,9 @@ Links in multi selection fields / Links in Mehrfachauswahl-Felder
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+Version 2.3.1
+1. Entwicklung eingestellt (Code verbessert)
+
 Version 2.3
 1. Entwicklung eingestellt
 
